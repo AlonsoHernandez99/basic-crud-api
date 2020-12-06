@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require(`cors`);
+const { DATABASE } = require("./utils/constants");
+
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); 
@@ -26,7 +28,7 @@ app.use(bodyParser.json());
  * MONGO DB CONNECTION
  */
 mongoose
-  .connect("mongodb://localhost:27017/personsTask5DB", {
+  .connect(DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
